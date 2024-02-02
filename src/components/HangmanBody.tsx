@@ -42,7 +42,6 @@ type HangmanBodyProps = {
 };
 const HangmanBody = ({ score }: HangmanBodyProps) => {
   const body = BODY_PARTS.slice(0, score);
-  console.log(score);
 
   return (
     <svg

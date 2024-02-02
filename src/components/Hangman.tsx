@@ -46,7 +46,6 @@ const Hangman = () => {
   const errorScore = selectedLetters.filter(
     (letter) => !currentWord.includes(letter),
   ).length;
-  console.log(currentWord);
 
   const keyClickHandler = (letter: string) => {
     setSelectedLetters((prev) => [...prev, letter]);
