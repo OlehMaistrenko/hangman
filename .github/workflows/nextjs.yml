@@ -27,11 +27,12 @@ jobs:
         run: |
           npm ci
           npm run build
+          npm run export
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: main
+          BRANCH: gh-pages
           FOLDER: out
           CLEAN: true
