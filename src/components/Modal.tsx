@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 
 type ModalProps = {
@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
           {children}
         </div>
       </div>,
-      ref.current as Element,
+      ref.current,
     )
   );
 };
