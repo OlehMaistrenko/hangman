@@ -1,45 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import HangmanBody from "./HangmanBody";
 import HangmanKeyboard from "./HangmanKeyboard";
 import HangmanWord from "./HangmanWord";
 import Modal from "./Modal";
-const WORDS = [
-  "apple",
-  "music",
-  "happy",
-  "pizza",
-  "house",
-  "beach",
-  "tiger",
-  "smile",
-  "dance",
-  "pencil",
-  "cloud",
-  "river",
-  "grape",
-  "sunny",
-  "bread",
-  "heart",
-  "ocean",
-  "zebra",
-  "chair",
-  "snake",
-  "plane",
-  "robot",
-  "phone",
-  "moon",
-  "sugar",
-  "horse",
-  "jazz",
-  "fruit",
-  "light",
-];
-function getNewWord() {
-  return WORDS[Math.floor(Math.random() * WORDS.length)];
-}
-const Hangman = () => {
-  const [currentWord, setCurrentWord] = useState<string>("");
+import { getNewWord } from "@/app/words";
+
+const Hangman: React.FC<{ word: string }> = ({ word }) => {
+  const [currentWord, setCurrentWord] = useState(word);
   const [selectedLetters, setSelectedLetters] = useState<Array<string>>([]);
   const [correctLetters, setCorrectLetters] = useState<Array<string>>([]);
 
@@ -53,10 +22,6 @@ const Hangman = () => {
       setCorrectLetters((prev) => [...prev, letter]);
     }
   };
-
-  useEffect(() => {
-    setCurrentWord(getNewWord());
-  }, []);
 
   const isWinning =
     correctLetters.length === new Set([...currentWord.split("")]).size;

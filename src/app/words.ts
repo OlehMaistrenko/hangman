@@ -1,0 +1,35 @@
+const WORDS = [
+  "apple",
+  "music",
+  "happy",
+  "pizza",
+  "house",
+  "beach",
+  "tiger",
+  "smile",
+  "dance",
+  "pencil",
+  "cloud",
+  "river",
+  "grape",
+  "sunny",
+  "bread",
+  "heart",
+  "ocean",
+  "zebra",
+  "chair",
+  "snake",
+  "plane",
+  "robot",
+  "phone",
+  "moon",
+  "sugar",
+  "horse",
+  "jazz",
+  "fruit",
+  "light",
+];
+
+export function getNewWord() {
+  return WORDS[Math.floor(Math.random() * WORDS.length)];
+}
